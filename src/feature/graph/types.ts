@@ -1,3 +1,9 @@
+import {
+  LOAD_GRAPH_FAILURE,
+  LOAD_GRAPH_REQUEST,
+  LOAD_GRAPH_SUCCESS,
+} from "./graph.constans";
+
 export interface Token {
   name: string;
   amount: number;
@@ -6,7 +12,7 @@ export interface Token {
 
 export interface Node {
   id: string;
-  type: "user" | "cex" | "bridge";
+  type: "user" | "cex" | "bridge" | "group";
   name: string;
   usdt_balance: number;
   tokens: Token[];
@@ -17,7 +23,7 @@ export interface Node {
 }
 
 export interface Link {
-  id: string;
+  id?: string;
   sender: string;
   receiver: string;
   usdt_amount: number;
@@ -28,3 +34,8 @@ export interface GraphResponse {
   nodes: Node[];
   links: Link[];
 }
+
+export type GraphAction =
+  | { type: typeof LOAD_GRAPH_REQUEST }
+  | { type: typeof LOAD_GRAPH_SUCCESS; payload: GraphResponse }
+  | { type: typeof LOAD_GRAPH_FAILURE; error: string };
