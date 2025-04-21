@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+Blockchain Transaction Graph Visualizer
+Визуализация транзакций блокчейна в виде интерактивного графа
+Проект позволяет исследовать связи между криптовалютными адресами, анализировать транзакции и группировать узлы для удобства анализа.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Основные возможности
+Поиск и исследование
+Добавление адресов через текстовый ввод или двойной клик по узлам графа.
 
-Currently, two official plugins are available:
+Автоматическое позиционирование новых узлов без нарушения текущей структуры графа.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Интеллектуальное расположение связей:
 
-## Expanding the ESLint configuration
+Отправители — слева, получатели — справа.
+Двунаправленные связи позиционируются по преобладающему направлению транзакций.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+📊 Визуализация данных
+Цветовая кодировка узлов по типам адресов.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Динамические подписи:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Узлы: адрес, имя, баланс
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Связи: сумма транзакций (USD/токены) с возможностью переключения
+
+Группировка узлов:
+
+Объединение нескольких адресов в одну мета-ноду
+
+Автоматическое суммирование балансов и транзакций
+
+Возможность раскрытия группы обратно в отдельные узлы
+
+Быстрый старт:
+yarn install
+
+yarn dev
+
+http://localhost:5173
+
+
+
