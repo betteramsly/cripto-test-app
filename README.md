@@ -38,5 +38,5 @@ yarn dev
 
 http://localhost:5173
 
-
+Так же можно тут глянуть: https://cripto-test-app.vercel.app/
 
